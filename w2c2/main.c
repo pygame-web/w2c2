@@ -27,9 +27,18 @@ static char* const optString = "t:f:d:r:pgmch";
 static char* const optString = "f:d:r:pgmch";
 #endif /* HAS_PTHREAD */
 
+#if defined(__wii__)
+#include "/opt/python-wasm-sdk/w2c2/glob/glob.h"
+#include "/opt/python-wasm-sdk/w2c2/glob/glob.c"
+
+#else
 #if HAS_GLOB
 #include <glob.h>
+#if !defined(GLOB_NOMATCH)
+#define GLOB_NOMATCH 3
+#endif
 #endif /* HAS_GLOB */
+#endif
 
 #if HAS_UNISTD
 #include <unistd.h>

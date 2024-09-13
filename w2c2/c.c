@@ -378,7 +378,7 @@ wasmCWriteFileFunctionNonImportName(
     FILE* file,
     const U32 functionIndex
 ) {
-    fprintf(file, "f%u", functionIndex);
+    fprintf(file, "Z%u", functionIndex);
 }
 
 static
@@ -432,7 +432,7 @@ wasmCWriteStringFunctionUse(
         MUST (stringBuilderAppend(builder, wasmImportNameSeparator))
         MUST (wasmCWriteStringEscaped(builder, import.name))
     } else {
-        MUST (stringBuilderAppendChar(builder, 'f'))
+        MUST (stringBuilderAppendChar(builder, 'Z'))
         MUST (stringBuilderAppendU32(builder, functionIndex))
     }
     return true;
