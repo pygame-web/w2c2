@@ -6,3 +6,5 @@ compile_flags.txt
 cmake-build-debug
 build
 w2c2/w2c2
+/wasi/Makefile
+/w2c2/Makefile
